@@ -12,7 +12,11 @@ import java.util.List;
 @Repository
 public class ProductDaoImpl implements ProductDao {
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    public ProductDaoImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public void addProduct(Product product) {
