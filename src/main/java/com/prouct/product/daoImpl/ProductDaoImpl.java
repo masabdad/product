@@ -2,7 +2,6 @@ package com.prouct.product.daoImpl;
 
 import com.prouct.product.dao.ProductDao;
 import com.prouct.product.model.Product;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,7 +11,7 @@ import java.util.List;
 
 @Repository
 public class ProductDaoImpl implements ProductDao {
-    @Autowired
+
     private JdbcTemplate jdbcTemplate;
 
     @Override

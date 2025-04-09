@@ -5,7 +5,6 @@ import com.prouct.product.exceptionHandling.ProductAlreadyExistsException;
 import com.prouct.product.exceptionHandling.ProductNotFoundException;
 import com.prouct.product.model.Product;
 import com.prouct.product.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +12,6 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
     private ProductDao productDao;
 
     @Override
@@ -27,13 +25,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void updateProduct(Product product) {
-        Product existing = getProductById(product.getId());
         productDao.updateProduct(product);
     }
 
     @Override
     public void deleteProduct(Long id) {
-        getProductById(id); // check existence
+        getProductById(id);
         productDao.deleteProduct(id);
     }
 
