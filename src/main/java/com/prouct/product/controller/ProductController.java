@@ -39,11 +39,13 @@ public class ProductController {
     }
 
     @GetMapping("/get")
+    @RolesAllowed({"client_admin", "client_user"})
     public ResponseEntity<List<Product>> getAllProducts() {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/get/{id}")
+    @RolesAllowed({"client_admin", "client_user"})
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         return ResponseEntity.ok(productService.getProductById(id));
     }
